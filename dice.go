@@ -190,10 +190,6 @@ func main() {
 
 	fmt.Print("Jumlah Dadu: ")
 	fmt.Scanln(&M)
-	// N := 2
-	// M := 3
-	// fmt.Printf("Pemain = %d, Dadu = %d", N, M)
-	// fmt.Println()
 
 	Play(N, M)
 }
