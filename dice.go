@@ -43,7 +43,6 @@ func moveData(s []tempdata, minDice int) []tempdata {
 		if i == 0 {
 			for _, data := range s[i].dices {
 				if data == minDice {
-					// fmt.Println("data d", t)
 					newDataDice := Delete(s[i].dices, minDice)
 					s[i].dices = newDataDice
 					s[i+1].dices = append(s[i+1].dices, minDice)
@@ -63,7 +62,6 @@ func moveData(s []tempdata, minDice int) []tempdata {
 		} else {
 			for _, data := range s[i].dices {
 				if data == minDice {
-					// fmt.Println("data d", t)
 					newDataDice := Delete(s[i].dices, minDice)
 					s[i].dices = newDataDice
 					s[0].dices = append(s[0].dices, minDice)
@@ -112,7 +110,6 @@ func Play(N int, M int) {
 	round := 0
 	score := 0
 	round_stop := 0
-	// rount_run := 0
 
 	for true {
 		round++
@@ -137,7 +134,7 @@ func Play(N int, M int) {
 				finalscore = getScore(tempResults[i].dices, 6, tempResults[i].score)
 				tempResults[i].score = finalscore
 
-				tempResults = moveData(tempResults, 1)
+				// tempResults = moveData(tempResults, 1)
 				finaldice = Delete(tempResults[i].dices, 6)
 				tempResults[i].dices = finaldice
 
@@ -147,13 +144,10 @@ func Play(N int, M int) {
 			}
 		} else {
 			for player := 0; player < len(tempResults); player++ {
-				// fmt.Println(tempResults[player].dices)
 				for i := 0; i < len(tempResults[player].dices); i++ {
-					// if len(tempResults[player].dices) != 0 {
 					tempdice = getDices(len(tempResults[player].dices))
 
 					tempResults[player].dices = tempdice
-					// }
 				}
 				fmt.Printf("Pemain #%d (%d) : %v", tempResults[player].player, tempResults[player].score, tempResults[player].dices)
 				fmt.Println()
@@ -164,8 +158,8 @@ func Play(N int, M int) {
 			for i := 0; i < len(tempResults); i++ {
 				finalscore = getScore(tempResults[i].dices, 6, tempResults[i].score)
 				tempResults[i].score = finalscore
-				// fmt.Println(tempResults[i].dices)
-				tempResults = moveData(tempResults, 1)
+
+				// tempResults = moveData(tempResults, 1)
 				finaldice = Delete(tempResults[i].dices, 6)
 				tempResults[i].dices = finaldice
 
